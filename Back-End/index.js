@@ -15,11 +15,10 @@ app.use(bodyparser.json());
 app.use(express.json());
 app.use(cookieparser());
 
-
 mongoose
   .connect(process.env.MONGO_DB_URL)
   .then(() => {
-    console.log("db connected ");
+    console.log('Connected to MongoDB!');
   })
   .catch((err) => {
     console.log(err);
