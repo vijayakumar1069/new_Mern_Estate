@@ -8,7 +8,7 @@ const authRouter = require("./routes/auth.router.js");
 const listingRouter = require("./routes/listing.route.js");
 const path = require("path");
 const cookieparser = require("cookie-parser");
-const __dircname = path.resolve();
+// const __dirname = path.resolve();
 const app = express();
 app.use(cors());
 app.use(bodyparser.json());
@@ -28,11 +28,9 @@ mongoose
 app.use("/api/user", userRouter);
 app.use("/api/auth", authRouter);
 app.use("/api/listing", listingRouter);
-app.use(express.static(path.join(__dircname, "/Front-End/my-app/dist")));
-app.get("*", (req, res) => {
-  res.sendFile(
-    path.join(__dircname, "Front-End", "my-app", "dist", "index.html")
-  );
+app.use(express.static(path.join(__dirname, '../Front-End/my-app/dist')));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../Front-End/my-app/dist/index.html'));
 });
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;
