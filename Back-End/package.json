@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon Back-End/index.js",
-    "start": "node Back-End/index.js"
+    "start": "node Back-End/index.js",
+    "build":"npm install && npm install --prefix Front-end/my-app && npm run build --prefix Front-End/my-app"
   },
   "keywords": [],
   "author": "",
